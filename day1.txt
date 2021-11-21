@@ -1,0 +1,44 @@
+如何快速找到多个字点中的公共建？？
+d1={k: randint(1,4) for k in sample('abcdefgh',3)}
+d2={k: randint(1,4) for k in sample('abcdefgh',3)}
+d3={k: randint(1,4) for k in sample('abcdefgh',3)}
+[k for k in d1 if k in d2 and k in d3]
+dl=[d1, d2,d3]
+答案：
+[k for k in dl(0) if all(map(lambda d: k in d,dl[1:]))]	#获取的结构
+
+	---set集合办法
+使用字典的keys()方法
+对多个字典使用map，获取所有字典的keys集合，reduce去字典的交集；
+获取所有字典的keys：
+	map(dict.keys,dl)
+	list(map(dict.keys,dl))#查看这个所有keys的集合
+答案：（解析为：每一次把字典取出的keys进行求交集，最后就是公共具有的公共建了）
+	reduce(lambda a,b: a&b,map(dict.keys,dl))
+	
+===============
+如何让字典保持有序？
+from random import shuffle#打乱字典的顺序
+shuffle(players)
+od=OrderedDict()
+for i,p in enumerate(players,1):
+    od[p]=i
+def query_by_name(d, name):
+	return d[name]
+query_by_name(od,'c')
+
+from itertools import islice
+islice(range(10),3,6)#取出下标为3,6）之间的key值
+
+答案：
+def query_by_order(d,a,b=None):
+    a -= 1
+    if b is None:
+            b=a+1
+	return list(islice(od,a,b))
+	
+query_by_order(od,4)# 取出第四名
+query_by_order(od,3,5)	#取出第3,5名的
+
+============
+如何实现用户的历史记录功能（最多n条）？
