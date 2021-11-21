@@ -42,3 +42,33 @@ query_by_order(od,3,5)	#取出第3,5名的
 
 ============
 如何实现用户的历史记录功能（最多n条）？
+解决方案：
+	使用容量为n的队列存储历史记录；collections的deque,是一个双端循环队列；
+	双端队列:左右两队，历史记录只能存最近五次的；
+from collections import deque
+q=deque([],5)
+q.append(1)
+q.append(2)
+q.append(3)
+q.append(4)
+q.append(5)
+q.append(6)
+q
+import pickle#导入这个包进行保存历史记录
+pickle.dump
+pickle.dump(q, open('save.pkl', 'wb'))#以二进制方式写入到save.pkl文件中去
+ed sava.pkl#进行编辑打开，但是我打不开
+pickle.load(q,open('save.pkl,'rb'))#以二进制方式打开文件
+
+========
+如何在列表，字典，集合中根据条件筛选？
+ filter(lambda x: x>=0, data)
+ or /// 
+ [x for x in data if x>=0]
+ 字典解析：
+ {k: v for k,v in d.items() if v>90}
+ 集合解析：
+ {x for x in s if x%3==0}
+ 
+ 
+	
