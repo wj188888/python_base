@@ -1,0 +1,51 @@
+安装 jdk1.8(在jenkins中不配置，只为了形成allure的运行环境)
+下载allure,配置环境变量
+pytest插件的安装：
+Allure插件的安装：
+pip install allure-pytest
+
+在jenkins中加入插件：
+Allure jenkins Plugin
+
+全局工具配置：
+添加：Allure Commandline
++allure，+安装目录
+构建后：
+Allure report
+指定生成json文件路径results；	reports/data
+生成报告的地方reports；	reports/html
+应用，保存
+
+生成报告的命令：
+pytest -sv uwb --alluredir=../reports/data	(生成改文件加，为json内容he)
+allure generate ../reports/data -o ../reports/html --clean (生成离线的测试报告)
+在allure report设置：
+results：reports/data
+reports：reports/html
+--clean:对每次生成的报告进行清除，防止影响我们的测试报告
+
+
+
+.gitignore文件内容:
+	.idea
+	.pytest_cache
+	.allure_data
+	.allure_report
+	_pycache_
+	
+
+
+
+
+allure generate ./reports/data -o ./reports/html --clean
+
+# jenkins脚本命令行删除历史构建
+def jobName = "saas"
+def maxNumber = 14
+
+Jenkins.instance.getItemByFullName(jobName).builds.findAll {
+	it.number <= maxNumber
+
+}.each {
+	it.delete()
+}
