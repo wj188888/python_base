@@ -30,5 +30,3 @@ def get_value():
     second: {second},second的类型是{type(second)}')
 
 
-if __name__ == '__main__':
-    get_value()
