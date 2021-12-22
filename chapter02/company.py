@@ -20,3 +20,9 @@ for em in company1:
 
 # 打印长度
 print(len(company))
+
+
+'''
+    python的魔法函数：是python内置的一些函数，所有的类（对象）都可以使用;
+    会隐含的调用魔法函数，
+'''

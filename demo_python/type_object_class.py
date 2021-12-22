@@ -36,3 +36,4 @@ print(type(Student))    # <class 'type'>
 print(type.__bases__)   # 是个元祖(<class 'object'>,)
 print(type(object)) # <class 'type'>
 print(object.__bases__) # ()为空的
+
