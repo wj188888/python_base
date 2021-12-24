@@ -15,3 +15,26 @@ print(a)
 print(a is b)
 # 内存的id
 print(id(a), id(b))
+
+x = "adc"
+y = "adc"
+print(x is y)
+print(x==y)
+
+# 由于python内部优化，其实对于  小整数丶和短一点的“字符串” 来说，会进行复用，而列表不会
+'''
+    ==: 应为调用了魔法函数__eq__，对比两个值是否相等;
+    is: 两个对象相同
+'''
+
+class Person:
+    pass
+
+
+person = Person()
+if type(person) is Person:
+    print("相等")
+
+# 或
+if isinstance(person, Person):
+    print("也相等")
