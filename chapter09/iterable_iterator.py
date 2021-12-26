@@ -20,8 +20,8 @@ class Company(object):
 
 
     # 魔法函数
-    def __getitem__(self, item):
-        return self.employee[item]
+    # def __getitem__(self, item):
+    #     return self.employee[item]
 
     # 迭代器不支持切片
 class MyIterator(Iterator):
@@ -44,12 +44,15 @@ class MyIterator(Iterator):
 if __name__ == '__main__':
     company = Company(["tom", "bob", "jane"])
     # 获取到迭代器，然后保存到变量my_iter中去
-    my_iter = iter(company)
-    while True:
-        try:
-            next(my_iter)
-        except StopIteration:
-            pass
-    print(my_iter)
-    for item in company:
-        print(item)
+    # my_iter = iter(company)
+    # while True:
+    #     try:
+    #         next(my_iter)
+    #     except StopIteration:
+    #         pass
+    print(company.employee)
+    # my_list = MyIterator(company)
+    # print(my_list.__next__())
+
+    # for item in company:
+    #     print(item)
