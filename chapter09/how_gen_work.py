@@ -37,6 +37,18 @@ def gen_func():
     yield 3
     age = 30
     return "imooc"
+
+from collections import UserList
+
+class company:
+    def __getitem__(self, item):
+        pass
+
+    def __iter__(self):
+        pass
+
+
+
 if __name__ == '__main__':
     gen = gen_func()
     print(gen)
@@ -49,3 +61,7 @@ if __name__ == '__main__':
     next(gen)
     print(gen.gi_frame.f_lasti)
     print(gen.gi_frame.f_locals)
+
+    a = [1,2,3]
+    for i in a:
+        print(i)
