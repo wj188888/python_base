@@ -15,9 +15,34 @@ def get_detail_url(url):
     time.sleep(4)
     print("get detail html end")
 
+# 2.通过继承Thread来实现多线程
+
+class GetDetailHtml(threading.Thread):
+    def __init__(self, name):
+        super().__init__(name=name)
+
+    def run(self):
+        print("get detail html started")
+        time.sleep(2)
+        print("get detail html end")
+
+
+class GetDetailUrl(threading.Thread):
+    def __init__(self, name):
+        super().__init__(name=name)
+
+    def run(self):
+        print("get detail url started")
+        time.sleep(4)
+        print("get detail url end")
+
+
 if __name__ == '__main__':
-    thread1 = threading.Thread(target=get_detail_html, args=("",))
-    thread2 = threading.Thread(target=get_detail_url, args=("",))
+    thread1 = GetDetailHtml("get_detail_html")
+    thread2 = GetDetailUrl("get_detail_url")
+
+    # thread1 = threading.Thread(target=get_detail_html, args=("",))
+    # thread2 = threading.Thread(target=get_detail_url, args=("",))
     start_time = time.time()
     # thread1.setDaemon(True)
     # thread2.setDaemon(True)   # setDaemon是守护线程
@@ -32,4 +57,5 @@ if __name__ == '__main__':
     # 运行时间是我们两个线程的最大时间，
 
     # 当主线程退出的时候，子线程kill掉，这是主线程
-    print(f'{enter}last time: {round(time.time() - start_time,2)}')
+    print(f'{enter}last time: {round(time.time() - start_time,6)}')
+
