@@ -8,10 +8,14 @@
 # 现在主线程中可以获取某一个线程的状态或者某一个任务的状态，以及返回值
 # 当一个线程完成的时候我们主线程立即知道
 # fetures 可以让多线程和多进程编码接口一致
-
+import time
 from concurrent import futures
 from concurrent.futures import ThreadPoolExecutor, as_completed, wait, FIRST_COMPLETED
-import time
+from concurrent.futures import Future
+
+# 未来对象，task的返回容器
+# from concurrent.futures import Future 的设计理念很好，是异步编程的核心
+
 
 
 
