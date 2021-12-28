@@ -10,7 +10,7 @@
 # fetures 可以让多线程和多进程编码接口一致
 
 from concurrent import futures
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed, wait, FIRST_COMPLETED
 import time
 
 
@@ -29,11 +29,13 @@ executor = ThreadPoolExecutor(max_workers=2)
 # 要获取已经成功的task的返回
 urls = [3, 2, 4]
 all_task = [executor.submit(get_html, (url)) for url in urls]
+# wait(all_task, return_when=FIRST_COMPLETED)
+# print("main")
 for future in as_completed(all_task):
     data = future.result()
     print(f'get {data} page')
 
-# 通过executor获取已经完成的task
+# 通过executor获取已经完成的task,其中map是按照url的顺序进行完成的
 for data in executor.map(get_html, urls):
     print(f'get {data} page')
 
