@@ -66,8 +66,7 @@ if __name__ == '__main__':
 
     ci1 = CallInfo('data/mylog1.log')
     ci2 = CallInfo('data/mylog2.log')
-
-
+    # 调用类中函数
     @ci1.info
     def f():
         sleep_time = random.randint(0, 6) * 0.1
