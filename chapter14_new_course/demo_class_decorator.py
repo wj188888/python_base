@@ -64,8 +64,8 @@ if __name__ == '__main__':
     '''
     import random
 
-    ci1 = CallInfo('./mylog1.log')
-    ci2 = CallInfo('./mylog2.log')
+    ci1 = CallInfo('data/mylog1.log')
+    ci2 = CallInfo('data/mylog2.log')
 
 
     @ci1.info
