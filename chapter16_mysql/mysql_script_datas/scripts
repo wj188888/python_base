@@ -1,0 +1,18 @@
+mysqlslap --concurrency=1,50,100,200 --iterations=3 --number-int-cols=5 --number-char-cols=5 --auto-generate-sql --auto-generate-sql-add-autoincrement --engine-myisam,innodb --number-of-queries=10 --create-schema=sbtest
+
+# 重新命名
+mv 1.0.20.tar.gz  sysbench.tar.gz
+
+# sysbench脚本
+sysbench --db-driver=mysql --time=300 --thread=12 --report-interval=1 --mysql-host=127.0.0.1 --mysql-port=3306 --mysql-user=root --mysql-password=root --mysql-db=test_db --table=100 --table_size=1000000 oltp_read_write --db-ps-mode prepare
+
+# sysbench脚本二
+# cpu测试
+sysbench --test=cpu --cpu-max-prime=10000 run
+# io测试,生成总共1G的文件
+sysbench --test=fileio --file-total-size=1G
+# 第二部,执行文件这1G的文件,进行io的测试
+sysbench --test=fileio --num-threads=8 --init-rng=on --file-total-size=1G --file-test-mode=radrw --report-interval=1 run
+
+# 先做一个大致的了解
+sysbench --test=./oltp.lua --mysql-table-engine ...

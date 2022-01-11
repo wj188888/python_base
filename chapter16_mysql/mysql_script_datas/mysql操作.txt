@@ -1,0 +1,11 @@
+# 查看当前mysql是否启动或者关闭
+systemctl status mysql.service;
+
+# 查看详细信息
+systemctl show mysql.service;
+
+# 禁用mysql
+sudo service mysql stop;
+
+# 启用mysql
+sudo service mysql start;

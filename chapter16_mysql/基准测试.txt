@@ -15,4 +15,49 @@
     如何进行基准测试：
         1.对系统进行基准测试，一把是入口，优点是，测试整个系统的性能，b。反应出接口之间性能问题
             缺点：测试设计复杂，时间长
-        2.单独对musql进行测试
+        2.单独对mysql进行测试
+            使用生产哈unjing数据
+            多用户场景,只做但用户测试
+            在单服务器上测试分布式应用
+            反复执行同一查询
+基准测试工具,软件:
+    免费工具:mysqlslap
+        mysqlslap特点:
+            可以模拟服务器负载,并输出语句
+        常用参数:
+            --auto-generate-sql由系统自动生成SQL脚本进行测试
+            --auto-generate-add-autoincrement在生成的表中增加子曾ID
+            --auto-generatre-sql-load-type指定测试中使用的查询类型
+            --auto-generate-sql-write-number 指定初始化数据时生成的数据量
+            --concurrency 指定并发的数量,并发数量,多个可以用逗号隔开
+            --engine 引擎,逗号分割多个存储引擎
+            --no-drop 指定不清理测试数据
+            --iterations 制定测试运行的次数
+            -- number-int-cols 制定测试表中包含的INT类型列的数量
+            -- create-schema 指定用于执行测试的数据库名字
+            --query 用于指定自定义SQL脚本
+            --only-print 并不运行测试脚本,而是吧生成的脚本
+            ...
+        使用mysqlslap脚本:
+            mysqlslap --concurrency=1,50,100,200 --iterations=3 --number-int-cols=5 --number-char-cols=5 --auto-generate-sql --auto-generate-sql-add-autoincrement --engine-myisam,innodb --number-of-queries=10 --create-schema=sbtest
+
+            (可以加一个参数--only-print | more > 1.sql)打印更多信息并保存到1.sql中去
+# =============================
+    免费工具sysbench:
+        常用参数;
+            --test 用于指定要执行的测试类型,支持以下啊参数
+                Fileio 文件系统I/O性能测试
+                cpu cpu性能测试
+                memory 内存性能测试
+                Oltp 制定特定的lua脚本
+                lua脚本位于:sysbench-1.0.20/sysbench/tests/db中
+            --mysql-db 用于制定基础测试的数据库名
+            --mysql-table-engine 用于指定所使用的存储引擎
+            --oltp-tables-count 指定测试的表的数量
+            -num-threads 制定测试的并发书来那个
+            -max-time 制定最大的测试时间
+            --report-interval 制定间隔多长时间输出一次统计信息
+            --mysql-user 执行测试的mysqlyonghu
+            prepare 用于准备测试数据
+            run 实际运行测试
+            cleanup 清理你的数据
