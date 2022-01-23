@@ -22,3 +22,21 @@ Mysql复制拓扑：
         1).确保两台服务器上的初始数据相同
         2).确保两台服务器上已经启动binlog并且不同的server_id
         3).在两台服务器上启用log_slave_updates
+
+MYSQL复制性能优化
+影响主从复制的延迟因素：
+    1.主库写入二进制日志的时间（写入事务的时间）；解决方案：控制主库的事务大小，分割大事务
+    2.二进制日志传输时间；根据传输的日志量多少，解决方案：使用MIXED日志格式或设置set binlog_row_image = minimal
+    3.默认情况下从只有一个SQL线程，主上并发的修改在从上变成了串行；（解决方法是：使用多线程复制）
+
+    如何配置多线程复制
+    stop slave
+    set global slave_parallel_type = 'logical_clock';
+    set gloabl slave_parallel_workers=4;
+    最后启动复制：start slave;
+    第一步：
+        1.查看之前主库的配置：show variables like 'slave_parallel_type';默认是数据库
+        2.set global slave parallel type='logical_clock';
+    第二步：
+        1.查看之前从库的配置：show variables like 'slave_parallel_type';
+        2.set global slave parallel work
