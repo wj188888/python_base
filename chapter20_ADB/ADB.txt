@@ -1,0 +1,11 @@
+adb devices
+当前连接的设备的清单和状态
+
+emulator @ada554
+
+adb devices
+
+
+文件操作命令：
+adb -s emulator-554 push
+
