@@ -15,5 +15,5 @@ def tag(name, *content, cls=None, **attrs):
 
 
 if __name__ == '__main__':
-    x=tag("html",'<body>','<content>','<div>','</div>')
+    x=tag("html",'<body>','<content>','<div>','</div>',{"name": "wangjie"})
     print(x)
