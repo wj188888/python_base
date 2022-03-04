@@ -4,7 +4,7 @@ class People:
     def __init__(self, name, age, sex):
         self.name = name
         self.age = age
-        self.__sex = sex
+        self.__sex = sex # 设置私有属性
 
     def get_name(self):
         return self.name
