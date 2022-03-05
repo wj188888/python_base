@@ -8,7 +8,7 @@ class A:
         
     '''
 a = A(2,13)
-print(a.x, a.y, a.aa)
+print(a.x, a.y, a.aa, A.aa)
 '''
     其中a.aa的aa是类变量
     假如赋值a.aa = 1
