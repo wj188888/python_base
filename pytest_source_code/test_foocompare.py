@@ -7,6 +7,6 @@ class Foo:
         return self.val == other.val
 
 def test_compare():
-    f1 = Foo(1)
-    f2 = Foo(2)
+    f1 = Foo(12)
+    f2 = Foo(12)
     assert f1 == f2

@@ -9,7 +9,7 @@ def getssh():
 
 def test_getssh(monkeypatch):
     def mockreturn():
-        return Path("/abc")
+        return Path("/abc/.ssh")
 
     monkeypatch.setattr(Path, "home", mockreturn)
 
