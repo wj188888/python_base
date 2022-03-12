@@ -50,7 +50,7 @@ def window(caplog,windowc):
                 "warning messages encountered during testing: {}".format(messages)
             )
 
-pytest.LogCaptureFixture
+
 def pytest_assertrepr_compare(op, left, right):
     if isinstance(left, Foo) and isinstance(right, Foo) and op == "==":
 
