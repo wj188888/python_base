@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from pytest_source_code.test_foocompare import Foo
+from pytest_source_code.window import Window
 import sys
 
 from pytest_source_code import app
@@ -31,6 +32,25 @@ def no_requests(monkeypatch):
 sys.dont_write_bytecode = True
 
 
+@pytest.fixture
+def windowc():
+    return Window()
+
+@pytest.fixture
+def window(caplog,windowc):
+    window = windowc.create_window()
+    # yield 返回window值
+    yield window
+    for when in ("setup", "call"):
+        messages = [
+            x.message for x in caplog.get_records(when) if x.levelno == logging.WARNING
+        ]
+        if messages:
+            pytest.fail(
+                "warning messages encountered during testing: {}".format(messages)
+            )
+
+pytest.LogCaptureFixture
 def pytest_assertrepr_compare(op, left, right):
     if isinstance(left, Foo) and isinstance(right, Foo) and op == "==":
 
