@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import pytest
 
-from emaillib import Email, MailAdminClient
+from pytest_source_code.emaillib import Email, MailAdminClient
 
 
 @pytest.fixture
