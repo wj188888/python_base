@@ -2,7 +2,7 @@
 
 """
 uiautomation
-pip install uiautomation
+pip install uiautomation //操作微信接口
 """
 
 import uiautomation

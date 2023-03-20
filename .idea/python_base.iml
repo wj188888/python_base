@@ -5,6 +5,7 @@
       <excludeFolder url="file://$MODULE_DIR$/venv" />
       <excludeFolder url="file://$MODULE_DIR$/testvenv" />
       <excludeFolder url="file://$MODULE_DIR$/seleniumvenv" />
+      <excludeFolder url="file://$MODULE_DIR$/venv-temp" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7 (python_base)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

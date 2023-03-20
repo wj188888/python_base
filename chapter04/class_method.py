@@ -1,11 +1,13 @@
 class Date:
     # 构造函数
     def __init__(self, year, month, day):
+        #定义年月日
         self.year = year
         self.month = month
         self.day = day
 
     def tomorrow(self):
+        #明天 在今天的日期上加1
         self.day += 1
 
     # 静态方法
@@ -52,5 +54,4 @@ if __name__ == '__main__':
     # 用classmethod来完成初始化
     new_day = Date.from_string(date_str)
     print(new_day)
-
     print(Date.valid_str(date_str))

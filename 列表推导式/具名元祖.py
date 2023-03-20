@@ -22,3 +22,6 @@ d['First_key'] = 1
 d['two_key'] = 2
 for key in d.keys():
     print(key)
+
+for value in d.values():
+    print(value)
