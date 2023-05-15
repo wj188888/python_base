@@ -10,4 +10,11 @@
     <orderEntry type="jdk" jdkName="Python 3.7 (python_base)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="PyNamespacePackagesService">
+    <option name="namespacePackageFolders">
+      <list>
+        <option value="$MODULE_DIR$/202305" />
+      </list>
+    </option>
+  </component>
 </module>
