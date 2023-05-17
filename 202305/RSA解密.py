@@ -12,6 +12,8 @@ from RSA加密 import encryption
 def decryption(text_encrypted_base64: str, private_key: bytes):
     #字符串指定编码（转为bytes）
     text_encrypted_base64 = text_encrypted_base64.encode('utf-8')
+    print("text_encrypted_base64内容:")
+    print(text_encrypted_base64.decode())
     #base64解码
     text_encrypted = base64.b64encode(text_encrypted_base64)
     #构建私钥对象
