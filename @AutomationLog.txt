@@ -1,0 +1,1 @@
+2023-07-31 22:31:27.744 wxmsg_demo.py[11] <module> -> Find Control Timeout(10s): {Name: '微信', ControlType: WindowControl}
