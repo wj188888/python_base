@@ -30,4 +30,5 @@ def dictReadCsv(dicts=False):
 
 if __name__ == '__main__':
     dictReadCsv(dicts=2)
+    # readCsv()
 
